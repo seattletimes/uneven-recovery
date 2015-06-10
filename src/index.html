@@ -10,7 +10,7 @@
   <body>
 
     <responsive-child>
-      <!-- content goes here -->
+      <canvas width=500 height=400></canvas>
     </responsive-child>
 
     <script>
@@ -32,7 +32,7 @@
           });
         });
       %>
-      var incomeData = <%= JSON.stringify(data) %>
+      var incomeData = window.data = <%= JSON.stringify(data) %>
     </script>
     <script src="app.js"></script>
     <% if (json.project.production) { %>
