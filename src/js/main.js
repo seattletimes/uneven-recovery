@@ -4,6 +4,10 @@
 
 require("component-responsive-frame/child");
 
+var ich = require("icanhaz");
+var tooltipTemplate = require("./_tooltipTemplate.html");
+ich.addTemplate("tooltipTemplate", tooltipTemplate);
+
 var percentiles = [
   { name: "20th", color: "#ca6951" },
   { name: "40th", color: "#f89e5d" },
@@ -36,7 +40,7 @@ percentiles.forEach(function(percentile) {
     ctx.stroke();
     i += indexWidth;
   });
-})
+});
 
 var tooltip = document.querySelector(".tooltip");
 
@@ -55,21 +59,29 @@ var onmove = function(e) {
       y: e.clientY - bounds.top
     };
   }
-  var index = Math.round(position.x / indexWidth) + 2007;
+
+  var index = (Math.round(position.x / indexWidth) + 2007).toString();
   tooltip.classList.add("show");
   tooltip.style.top = e.pageY + 20 + "px";
   tooltip.style.left = e.pageX + 10 + "px";
-  // if (item.value == "") {
-  //   item.value = "N/A"
-  // } else {
-  //   item.value = "$" + item.value;
-  // }
-  tooltip.innerHTML = index;
+
+  var values = [];
+  percentiles.forEach(function(percentile) {
+    if (percentile) {
+      var name = percentile.name + " percentile";
+      var color = percentile.color;
+      var income = data[percentile.name + " percentile"][index].income;
+      values.push({
+        name: name, color: color, income: income
+      });
+    }
+  });
+
+  tooltip.innerHTML = ich.tooltipTemplate({data: values});
 };
 
 canvas.addEventListener("mousemove", onmove);
-// element.on("click", onmove);
-// element.on("mouseout", function(e) {
-//   render(canvas, data);
-//   tooltip.classList.remove("show");
-// });
+canvas.addEventListener("click", onmove);
+canvas.addEventListener("mouseout", function(e) {
+  tooltip.classList.remove("show");
+});

@@ -8,8 +8,19 @@
 @import "seattletimes";
 
 .tooltip {
+  display: none;
   position: absolute;
   background: @df-light-gray;
   padding: 3px 5px;
   border: @df-border-gray;
+
+  &.show {
+    display: block;
+  }
+
+  .swatch {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+  }
 }
