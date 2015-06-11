@@ -7,6 +7,28 @@
 
 @import "seattletimes";
 
+.container {
+  max-width: 620px;
+  font-family: @df-sans;
+}
+
+.hed {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.chatter {
+  font-size: 15px;
+  padding-bottom: 15px;
+  font-family: @df-serif;
+}
+
+canvas {
+  border: 1px solid black;
+}
+
 .tooltip {
   display: none;
   position: absolute;
@@ -23,4 +45,13 @@
     height: 15px;
     display: inline-block;
   }
+}
+
+.source, .credit {
+  font-size: 11.5px;
+  color: @df-middle-gray;
+}
+
+.source {
+  padding-top: 6px;
 }
