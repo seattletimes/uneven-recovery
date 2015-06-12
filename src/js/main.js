@@ -17,9 +17,12 @@ var percentiles = [
 ];
 
 var width = 620;
-var height = 310;
-var chartHeight = height - 30;
-var indexWidth = width / 7;
+var height = 320;
+var leftOffset = 35;
+var topOffset = 5;
+var chartHeight = 280;
+var chartWidth = width - leftOffset;
+var indexWidth = chartWidth / 7;
 var indexHeight = chartHeight / 7;
 
 var years = [2007, 2008, 2009, 2010, 2011, 2012, 2013];
@@ -28,34 +31,46 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 
 var render = function(index) {
-  ctx.font = "14px helvetica";
+  ctx.textBaseline = "middle";
   ctx.clearRect(0, 0, width, height); 
 
   // hover bars
   if (typeof index !== "undefined") {
     ctx.fillStyle = "rgb(248, 248, 248)";
-    ctx.fillRect(index * indexWidth, 0, indexWidth, height);
+    ctx.fillRect(index * indexWidth + leftOffset, topOffset, indexWidth, height);
+    ctx.fillStyle = "rgb(199, 187, 220)";
+    ctx.fillRect(index * indexWidth + leftOffset, height-35, indexWidth, height);
   }
 
   // graph lines
   ctx.beginPath();
   ctx.strokeStyle = 'rgb(192, 192, 192)';
   ctx.lineWidth = 1;
-  ctx.moveTo(0,0);
-  ctx.lineTo(width, 0);
+  ctx.moveTo(leftOffset, topOffset);
+  ctx.lineTo(chartWidth + leftOffset, topOffset);
   for (var i = 1; i < 8; i++) {
-    ctx.moveTo(0,indexHeight*i);
-    ctx.lineTo(width, indexHeight*i);
+    ctx.moveTo(leftOffset,indexHeight*i + topOffset);
+    ctx.lineTo(chartWidth + leftOffset, indexHeight * i + topOffset);
   };
   ctx.stroke();
 
   // year labels
-  var i = indexWidth/2;
+  var i = indexWidth/2 + leftOffset;
+  ctx.font = "bold 14px helvetica";
   ctx.fillStyle = "rgb(66, 70, 72)";
   years.forEach(function(year){
-    ctx.fillText(year, i - 15, height);
+    ctx.fillText(year, i - 15, height - 18);
     i += indexWidth;
   });
+
+  // percent labels
+  var percent = 2;
+  ctx.font = "12px helvetica";
+  ctx.fillStyle = "rgb(66, 70, 72)";
+  for (var i = 0; i < 8; i++) {
+    ctx.fillText(percent + "%", 0, indexHeight * i + topOffset);
+    percent -= 2;
+  };
 
   // data lines
   percentiles.forEach(function(percentile) {
@@ -68,9 +83,9 @@ var render = function(index) {
     ctx.beginPath();
     ctx.strokeStyle = percentile.color;
     ctx.lineWidth = 1.75;
-    var i = indexWidth/2;
+    var i = indexWidth/2 + leftOffset;
     points.forEach(function(point) {
-      var y = indexHeight - (point * 20);
+      var y = indexHeight - (point * 20) + topOffset;
       ctx.lineTo(i, y);
       ctx.stroke();
       i += indexWidth;
