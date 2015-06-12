@@ -109,7 +109,7 @@ render();
 var tooltip = document.querySelector(".tooltip");
 
 var onmove = function(e) {
-  var indexWidth = canvas.offsetWidth / 6;
+  var indexWidth = (canvas.offsetWidth - leftOffset) / 7;
 
   if (e.target.tagName.toLowerCase() != "canvas") return;
   var position = {
@@ -117,7 +117,7 @@ var onmove = function(e) {
     y: e.offsetY
   };
 
-  var index = Math.round(position.x / indexWidth);
+  var index = Math.floor((position.x - leftOffset)/ indexWidth);
   var year = (index + 2007).toString();
   tooltip.classList.add("show");
   tooltip.style.top = e.pageY + 20 + "px";
