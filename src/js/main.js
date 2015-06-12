@@ -9,11 +9,11 @@ var tooltipTemplate = require("./_tooltipTemplate.html");
 ich.addTemplate("tooltipTemplate", tooltipTemplate);
 
 var percentiles = [
-  { name: "20th", color: "#da2128" },
-  { name: "40th", color: "#f57d20" },
-  { name: "60th", color: "#2a9964" },
+  { name: "95th", color: "#524fa2" },
   { name: "80th", color: "#2384c6" },
-  { name: "95th", color: "#524fa2" }
+  { name: "60th", color: "#2a9964" },
+  { name: "40th", color: "#f57d20" },
+  { name: "20th", color: "#da2128" }
 ];
 
 var width = 620;
@@ -119,29 +119,34 @@ var onmove = function(e) {
 
   var index = Math.floor((position.x - leftOffset)/ indexWidth);
   var year = (index + 2007).toString();
-  tooltip.classList.add("show");
-  tooltip.style.top = e.pageY + 20 + "px";
-  tooltip.style.left = e.pageX + 10 + "px";
+  if (index >= 0) { 
+    tooltip.classList.add("show");
+    tooltip.style.top = e.pageY + 20 + "px";
+    tooltip.style.left = e.pageX + 10 + "px";
 
-  var values = [];
-  percentiles.forEach(function(percentile) {
-    if (percentile) {
-      var name = percentile.name + " percentile";
-      var color = percentile.color;
-      var income = data[percentile.name + " percentile"][year].income;
-      values.push({
-        name: name, color: color, income: income
-      });
-    }
-  });
+    var values = [];
+    percentiles.forEach(function(percentile) {
+      if (percentile) {
+        var name = percentile.name;
+        var color = percentile.color;
+        var income = data[percentile.name + " percentile"][year].income;
+        values.push({
+          name: name, color: color, income: income
+        });
+      }
+    });
 
-  render(index);
+    render(index);
 
-  tooltip.innerHTML = ich.tooltipTemplate({data: values});
+    tooltip.innerHTML = ich.tooltipTemplate({data: values});
+  } else {
+    tooltip.classList.remove("show");
+  }
 };
 
 canvas.addEventListener("mousemove", onmove);
 canvas.addEventListener("click", onmove);
 canvas.addEventListener("mouseout", function(e) {
+  render();
   tooltip.classList.remove("show");
 });

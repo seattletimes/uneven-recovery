@@ -32,19 +32,27 @@ canvas {
 
 .tooltip {
   display: none;
+  font-size: 14px;
   position: absolute;
-  background: @df-light-gray;
+  background: white;
   padding: 3px 5px;
   border: @df-border-gray;
+  padding: 10px;
+  padding-bottom: 8px;
+  border: 1px solid @df-light-gray;
 
   &.show {
     display: block;
   }
 
   .swatch {
-    width: 15px;
-    height: 15px;
     display: inline-block;
+    font-size: 11px;
+    padding: 3px 5px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    margin-right: 5px;
   }
 }
 
