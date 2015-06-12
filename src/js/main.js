@@ -9,14 +9,17 @@ var tooltipTemplate = require("./_tooltipTemplate.html");
 ich.addTemplate("tooltipTemplate", tooltipTemplate);
 
 var percentiles = [
-  { name: "20th", color: "#ca6951" },
-  { name: "40th", color: "#f89e5d" },
-  { name: "60th", color: "#e3a51d" },
-  { name: "80th", color: "#798f71" },
-  { name: "95th", color: "#8ca2d4" }
+  { name: "20th", color: "#da2128" },
+  { name: "40th", color: "#f57d20" },
+  { name: "60th", color: "#2a9964" },
+  { name: "80th", color: "#2384c6" },
+  { name: "95th", color: "#524fa2" }
 ];
 
-var indexWidth = 100;
+var width = 620;
+var height = 350;
+var indexWidth = width / 6;
+var indexHeight = height / 7;
 
 var years = [2007, 2008, 2009, 2010, 2011, 2012, 2013];
 
@@ -35,30 +38,35 @@ percentiles.forEach(function(percentile) {
   ctx.lineWidth = 1.5;
   var i = 0;
   points.forEach(function(point) {
-    var y = 100 - (point * 20);
+    var y = indexHeight - (point * 20);
     ctx.lineTo(i, y);
     ctx.stroke();
     i += indexWidth;
   });
 });
 
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgb(192, 192, 192)';
+  ctx.lineWidth = 1;
+  ctx.moveTo(0,0);
+  ctx.lineTo(width, 0);
+  for (var i = 1; i < 8; i++) {
+    ctx.moveTo(0,indexHeight*i);
+    ctx.lineTo(width, indexHeight*i);
+  };
+  ctx.stroke();
+
 var tooltip = document.querySelector(".tooltip");
 
 var onmove = function(e) {
+  var indexWidth = canvas.offsetWidth / 6;
+
   if (e.target.tagName.toLowerCase() != "canvas") return;
-  var position;
-  if (e.offsetX) {
-    position = {
-      x: e.offsetX,
-      y: e.offsetY
-    };
-  } else {
-    var bounds = canvas.getBoundingClientRect();
-    position = {
-      x: e.clientX - bounds.left,
-      y: e.clientY - bounds.top
-    };
-  }
+  var position = {
+    x: e.offsetX,
+    y: e.offsetY
+  };
 
   var index = (Math.round(position.x / indexWidth) + 2007).toString();
   tooltip.classList.add("show");
