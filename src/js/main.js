@@ -18,7 +18,7 @@ var percentiles = [
 
 var width = 620;
 var height = 320;
-var leftOffset = 35;
+var leftOffset = 48;
 var topOffset = 5;
 var chartHeight = 280;
 var chartWidth = width - leftOffset;
@@ -31,7 +31,6 @@ var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
 
 var render = function(index) {
-  ctx.textBaseline = "middle";
   ctx.clearRect(0, 0, width, height); 
 
   // hover bars
@@ -57,20 +56,32 @@ var render = function(index) {
   // year labels
   var i = indexWidth/2 + leftOffset;
   ctx.font = "bold 14px helvetica";
+  ctx.textBaseline = "middle";
+  ctx.textAlign = "center";
   ctx.fillStyle = "rgb(66, 70, 72)";
   years.forEach(function(year){
-    ctx.fillText(year, i - 15, height - 18);
+    ctx.fillText(year, i, height - 18);
     i += indexWidth;
   });
 
   // percent labels
   var percent = 2;
   ctx.font = "12px helvetica";
+  ctx.textBaseline = "middle";
+  ctx.textAlign = "right";
   ctx.fillStyle = "rgb(66, 70, 72)";
   for (var i = 0; i < 8; i++) {
-    ctx.fillText(percent + "%", 0, indexHeight * i + topOffset);
+    ctx.fillText(percent + "%", 43, indexHeight * i + topOffset);
     percent -= 2;
   };
+
+  // percent label name
+  ctx.rotate(-(Math.PI/180)*90);
+  ctx.textBaseline = "top";
+  ctx.textAlign = "center";
+  ctx.font = "13px helvetica";
+  ctx.fillText("Income change", -(chartHeight/2 + topOffset), 0);
+  ctx.rotate((Math.PI/180)*90);
 
   // data lines
   percentiles.forEach(function(percentile) {
