@@ -9,11 +9,11 @@ var tooltipTemplate = require("./_tooltipTemplate.html");
 ich.addTemplate("tooltipTemplate", tooltipTemplate);
 
 var percentiles = [
-  { name: "95th", color: "#524fa2" },
-  { name: "80th", color: "#2384c6" },
-  { name: "60th", color: "#2a9964" },
-  { name: "40th", color: "#f57d20" },
-  { name: "20th", color: "#da2128" }
+  { name: "95th", color: "82,79,162" },
+  { name: "80th", color: "35,132,198" },
+  { name: "60th", color: "42,153,100" },
+  { name: "40th", color: "245,125,32" },
+  { name: "20th", color: "218,33,40" }
 ];
 
 var width = 620;
@@ -92,7 +92,7 @@ var render = function(index) {
     });
 
     ctx.beginPath();
-    ctx.strokeStyle = percentile.color;
+    ctx.strokeStyle = "rgb(" + percentile.color + ")";
     ctx.lineWidth = 1.75;
     var i = indexWidth/2 + leftOffset;
     points.forEach(function(point) {
