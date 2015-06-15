@@ -53,6 +53,13 @@ var render = function(index) {
   };
   ctx.stroke();
 
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgb(126, 131, 139)';
+  ctx.lineWidth = 2;
+  ctx.moveTo(leftOffset, indexHeight + topOffset);
+  ctx.lineTo(chartWidth + leftOffset, indexHeight + topOffset);
+  ctx.stroke();
+
   // year labels
   var i = indexWidth/2 + leftOffset;
   ctx.font = "bold 14px helvetica";
@@ -112,13 +119,23 @@ var onmove = function(e) {
   var indexWidth = (canvas.offsetWidth - leftOffset) / 7;
 
   if (e.target.tagName.toLowerCase() != "canvas") return;
-  var position = {
-    x: e.offsetX,
-    y: e.offsetY
-  };
+  var position;
+  if (e.offsetX) {
+    position = {
+      x: e.offsetX,
+      y: e.offsetY
+    };
+  } else {
+    var bounds = canvas.getBoundingClientRect();
+    position = {
+      x: e.clientX - bounds.left,
+      y: e.clientY - bounds.top
+    };
+  }
 
   var index = Math.floor((position.x - leftOffset)/ indexWidth);
   var year = (index + 2007).toString();
+
   if (index >= 0) { 
     tooltip.classList.add("show");
     tooltip.style.top = e.pageY + 20 + "px";
@@ -130,8 +147,9 @@ var onmove = function(e) {
         var name = percentile.name;
         var color = percentile.color;
         var income = data[percentile.name + " percentile"][year].income;
+        var percent = data[percentile.name + " percentile"][year].percent;
         values.push({
-          name: name, color: color, income: income
+          name: name, color: color, income: income, percent: percent
         });
       }
     });

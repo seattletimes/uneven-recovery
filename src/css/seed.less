@@ -6,6 +6,7 @@
 }
 
 @import "seattletimes";
+@import "flexbox";
 
 .container {
   max-width: 620px;
@@ -28,6 +29,42 @@
 canvas {
   width: 100%;
   cursor: pointer;
+}
+
+.legend-title {
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.legend {
+  .display-flex;
+
+  .key {
+    .flex(1);
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 5px;
+
+    &.swatch {
+      height: 12px;
+
+      &.low {
+        background: rgba(218,33,40,.8); 
+      }
+      &.low-med {
+        background: rgba(245,125,32,.8);
+      }
+      &.med {
+        background: rgba(42,153,100,.8);
+      }
+      &.med-high {
+        background: rgba(35,132,198,.8);
+      }
+      &.high {
+        background: rgba(82,79,162,.8);
+      }
+    }
+  }
 }
 
 .tooltip {
