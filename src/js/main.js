@@ -120,26 +120,17 @@ var onmove = function(e) {
 
   if (e.target.tagName.toLowerCase() != "canvas") return;
   var position;
-  if (e.offsetX) {
-    position = {
-      x: e.offsetX,
-      y: e.offsetY
-    };
-  } else {
-    var bounds = canvas.getBoundingClientRect();
-    position = {
-      x: e.clientX - bounds.left,
-      y: e.clientY - bounds.top
-    };
-  }
+  var bounds = canvas.getBoundingClientRect();
+  position = {
+    x: e.clientX - bounds.left,
+    y: e.clientY - bounds.top
+  };
 
   var index = Math.floor((position.x - leftOffset)/ indexWidth);
   var year = (index + 2007).toString();
 
   if (index >= 0) { 
     tooltip.classList.add("show");
-    tooltip.style.top = e.pageY + 20 + "px";
-    tooltip.style.left = e.pageX + 10 + "px";
 
     var values = [];
     percentiles.forEach(function(percentile) {
@@ -148,8 +139,16 @@ var onmove = function(e) {
         var color = percentile.color;
         var income = data[percentile.name + " percentile"][year].income;
         var percent = data[percentile.name + " percentile"][year].percent;
+        var up = percent > 0;
+        var down = percent < 0;
+        percent = percent.toString().replace("-", "");
         values.push({
-          name: name, color: color, income: income, percent: percent
+          name: name, 
+          color: color, 
+          income: income, 
+          percent: percent,
+          up: up,
+          down: down
         });
       }
     });
@@ -157,6 +156,12 @@ var onmove = function(e) {
     render(index);
 
     tooltip.innerHTML = ich.tooltipTemplate({data: values});
+
+    var tBounds = tooltip.getBoundingClientRect();
+    var y = position.y < (bounds.height/2) ? 20 : -tBounds.height - 20;
+    var x = position.x < (bounds.width/2) ? 20 : -tBounds.width - 20;
+    tooltip.style.top = e.pageY + y + "px";
+    tooltip.style.left = e.pageX + x + "px";
   } else {
     tooltip.classList.remove("show");
   }
