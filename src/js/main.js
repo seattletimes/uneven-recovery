@@ -155,7 +155,7 @@ var onmove = function(e) {
 
     render(index);
 
-    tooltip.innerHTML = ich.tooltipTemplate({data: values});
+    tooltip.innerHTML = ich.tooltipTemplate({year: year, data: values});
 
     var tBounds = tooltip.getBoundingClientRect();
     var y = position.y < (bounds.height/2) ? 20 : -tBounds.height - 20;
