@@ -139,14 +139,16 @@ var onmove = function(e) {
         var color = percentile.color;
         var income = data[percentile.name + " percentile"][year].income;
         var percent = data[percentile.name + " percentile"][year].percent;
-        var up = percent > 0;
-        var down = percent < 0;
-        percent = percent.toString().replace("-", "");
+        if (!percent == 0) {
+          var up = percent > 0;
+          var down = percent < 0;
+          var formattedPercent = percent.toString().replace("-", "");
+        }
         values.push({
           name: name, 
           color: color, 
           income: income, 
-          percent: percent,
+          percent: formattedPercent,
           up: up,
           down: down
         });

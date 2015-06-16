@@ -3,6 +3,6 @@
 {{#data}}
   <div>
     <div class="swatch" style="background: rgba({{color}},0.4); border: 1px solid rgba({{color}},0.75)">{{name}}</div>
-    {{income}} <span class="percent">({{#up}}<span class="arrow">&#9650;</span>{{/up}}{{#down}}<span class="arrow">&#9660;</span>{{/down}} {{percent}}%)</span>
+    {{income}} {{#percent}}<span class="percent">({{#up}}<span class="arrow">&#9650;</span>{{/up}}{{#down}}<span class="arrow">&#9660;</span>{{/down}} {{percent}}%)</span>{{/percent}}
   </div>
 {{/data}}
