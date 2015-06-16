@@ -87,7 +87,7 @@ var render = function(index) {
   ctx.textBaseline = "top";
   ctx.textAlign = "center";
   ctx.font = "13px helvetica";
-  ctx.fillText("Income change", -(chartHeight/2 + topOffset), 0);
+  ctx.fillText("Income change from 2007", -(chartHeight/2 + topOffset), 0);
   ctx.rotate((Math.PI/180)*90);
 
   // data lines
