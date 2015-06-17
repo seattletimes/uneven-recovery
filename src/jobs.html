@@ -15,9 +15,15 @@
 
       <div class="outmost" ng-controller="JobsController">
         <div ng-repeat="bracket in brackets" class="row">
-          <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
-          <div class="color bar" style="width: {{bracket.secondWidth}}%"></div>
-          <div class="bar" style="width: {{bracket.thirdWidth}}%"></div>
+          <div class="label"></div>
+          <div class="bars">
+            <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
+            <div class="color bar" style="width: {{bracket.secondWidth}}%">
+              <div class="text" ng-class="{right: bracket.total > 0, left: bracket.total < 0}">{{bracket.total | number}}</div>
+            </div>
+            <div class="bar" style="width: {{bracket.thirdWidth}}%"></div>
+          </div>
+          <div class="label"></div>
         </div>
       </div>
 

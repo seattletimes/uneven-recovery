@@ -133,15 +133,39 @@ canvas {
 .jobs {
   .row {
     width: 100%;
+    .display-flex;
   }
 
-  .bar {
-    float: left;
-    height: 20px;
-    margin-bottom: 5px;
-    
-    &.color {
-      background: red;
+  .bars {
+    .flex(1);
+    font-size: 14px;
+
+    .bar {
+      float: left;
+      height: 20px;
+      margin-bottom: 5px;
+      position: relative;
+
+      &.color {
+        background: red;
+      }
     }
+
+    .text {
+      position: absolute;
+
+      &.right {
+        left: 100%;
+        padding-left: 6px;
+      }
+
+      &.left {
+        right: 100%;
+        padding-right: 6px;
+      }
+    }
+  }
+  .label {
+    .flex(0 0 50px);
   }
 }
