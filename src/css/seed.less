@@ -131,6 +131,8 @@ canvas {
 }
 
 .jobs {
+  font-size: 14px;
+
   .row {
     width: 100%;
     .display-flex;
@@ -138,16 +140,26 @@ canvas {
 
   .bars {
     .flex(1);
-    font-size: 14px;
+
+    .inner {
+      .display-flex;
+    }
+
+    .left-bars {
+      .flex(12);
+    }
+    .right-bars {
+      .flex(88);
+    }
 
     .bar {
       float: left;
       height: 20px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       position: relative;
 
       &.color {
-        background: red;
+        background: @df-blue;
       }
     }
 
@@ -164,6 +176,11 @@ canvas {
         padding-right: 6px;
       }
     }
+  }
+  .bracket-label {
+    .flex(0 0 60px);
+    font-weight: bold;
+    text-align: center;
   }
   .label {
     .flex(0 0 50px);

@@ -17,14 +17,16 @@ var totalWidth = max + min;
 jobsData.forEach(function(bracket) {
   var width = bracket.total / 100;
   if (width < 0) { 
-    bracket.firstWidth = (min + width) / totalWidth * 100;
-    bracket.secondWidth = (width * -1) / totalWidth * 100;
-    bracket.thirdWidth = max / totalWidth * 100;
+    bracket.firstWidth = (min + width) / min * 100;
+    bracket.secondWidth = (width * -1) / min * 100;
+    bracket.thirdWidth = 0;
+    bracket.fourthWidth = 100;
   }
   if (width > 0) { 
-    bracket.firstWidth = min / totalWidth * 100;
-    bracket.secondWidth = width / totalWidth * 100;
-    bracket.thirdWidth = (max - width) / totalWidth * 100;
+    bracket.firstWidth = 100;
+    bracket.secondWidth = 0;
+    bracket.thirdWidth = width / max * 100;
+    bracket.fourthWidth = (max - width) / max * 100;
   }
 });
 

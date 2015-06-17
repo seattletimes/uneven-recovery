@@ -14,14 +14,26 @@
       <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
 
       <div class="outmost" ng-controller="JobsController">
-        <div ng-repeat="bracket in brackets" class="row">
+        <div ng-repeat="bracket in brackets" class="row" style="position: relative;">
           <div class="label"></div>
           <div class="bars">
-            <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
-            <div class="color bar" style="width: {{bracket.secondWidth}}%">
-              <div class="text" ng-class="{right: bracket.total > 0, left: bracket.total < 0}">{{bracket.total | number}}</div>
+            <div class="inner">
+              <div class="left-bars">
+                <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
+                <div class="color bar" style="width: {{bracket.secondWidth}}%">
+                  <div ng-if="bracket.total < 0" class="left text">{{bracket.total | number}}</div>
+                </div>
+              </div>
+                <div class="bracket-label">
+                  {{bracket.bracket}}
+                </div>
+              <div class="right-bars">
+                <div class="color bar" style="width: {{bracket.thirdWidth}}%">
+                  <div ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
+                </div>
+                <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
+              </div>
             </div>
-            <div class="bar" style="width: {{bracket.thirdWidth}}%"></div>
           </div>
           <div class="label"></div>
         </div>
