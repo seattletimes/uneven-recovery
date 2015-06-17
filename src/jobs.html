@@ -7,18 +7,27 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
-  <body>
+  <body class="jobs" ng-app="job-recovery">
 
     <responsive-child class="container">
       <div class="hed">Job recovery has been markedly uneven</div>
       <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
-      <div class="tooltip"></div>
 
-      <canvas width=620 height=320></canvas>
+      <div class="outmost" ng-controller="JobsController">
+        <div ng-repeat="bracket in brackets" class="row">
+          <div class="white bar" style="width: {{bracket.firstWidth}}%"></div>
+          <div class="color bar" style="width: {{bracket.secondWidth}}%"></div>
+          <div class="white bar" style="width: {{bracket.thirdWidth}}%"></div>
+        </div>
+      </div>
+
       <div class="source"><em>Source: U.S. Census Bureau</em></div>
       <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
     </responsive-child>
 
+    <script>
+      var jobsData = window.data = <%= JSON.stringify(csv.job_data) %>
+    </script>
     <script src="app.js"></script>
     <% if (json.project.production) { %>
     <%= !json.project.embedded ? t.include("partials/_adFoot.html") : "" %>
