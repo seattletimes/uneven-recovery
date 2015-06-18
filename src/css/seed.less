@@ -161,27 +161,32 @@ canvas {
     width: 100%;
     font-size: 15px;
     .align-items(flex-end);
+  }
 
-    .header {
-      display: inline-block;
-      padding-bottom: 10px;
-    }
+  .header {
+    display: inline-block;
+    padding-bottom: 10px;
 
-    .left {
-      .flex(1);
-      text-align: right;
-    }
-    .middle {
-      .flex(0 0 60px);
-      text-align: center;
-      font-size: 12px;
-    }
-    .right {
-      .flex(3);
+    &.dashed {
+      border-bottom: 1px dashed @df-middle-gray;
+      padding-left: 20px;
     }
   }
 
-  .row {
+  .left {
+    .flex(1);
+    text-align: right;
+  }
+  .middle {
+    .flex(0 0 60px);
+    text-align: center;
+    font-size: 12px;
+  }
+  .right {
+    .flex(3);
+  }
+
+  .bars-row {
     width: 100%;
     .display-flex;
   }
@@ -235,6 +240,35 @@ canvas {
     text-align: center;
   }
   .label {
-    .flex(0 0 55px);
+    .flex(0 0 50px);
+  }
+
+  .info-box {
+    max-width: 500px;
+    margin: auto;
+    max-height: 0;
+    overflow: hidden;
+    font-size: 16px;
+    transition: max-height .5s linear;
+
+    &.show {
+      max-height: 100px;
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+
+    .big {
+      font-size: 20px;
+    }
+
+    .medium {
+      font-size: 18px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
   }
 }

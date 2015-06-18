@@ -27,28 +27,55 @@
           <div class="label"></div>
         </div>
 
-        <div ng-repeat="bracket in brackets track by $index" class="row">
-          <div class="label"></div>
-          <div class="bars">
-            <div class="inner">
-              <div class="left-bars">
-                <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
-                <div class="low bar" style="width: {{bracket.secondWidth}}%">
-                  <div ng-if="bracket.total < 0" class="left text">{{bracket.total | number}}</div>
+        <div ng-repeat="bracket in brackets track by $index">
+
+          <div class="bars-row" ng-click="showInfo(bracket)">
+            <div class="label"></div>
+            <div class="bars">
+              <div class="inner">
+                <div class="left-bars">
+                  <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
+                  <div class="low bar" style="width: {{bracket.secondWidth}}%">
+                    <div ng-if="bracket.total < 0" class="left text">{{bracket.total * -1 | number}}</div>
+                  </div>
                 </div>
-              </div>
-                <div class="bracket-label">
-                  {{bracket.bracket}}
+                  <div class="bracket-label">
+                    {{bracket.bracket}}
+                  </div>
+                <div class="right-bars">
+                  <div class="high bar" style="width: {{bracket.thirdWidth}}%">
+                    <div ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
+                  </div>
+                  <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
                 </div>
-              <div class="right-bars">
-                <div class="high bar" style="width: {{bracket.thirdWidth}}%">
-                  <div ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
-                </div>
-                <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
               </div>
             </div>
+            <div class="label"></div>
           </div>
-          <div class="label"></div>
+
+          <div class="info-box" ng-class="{show: currentShown == bracket}">
+            
+            <div class="right header dashed">
+              <div>
+                <span ng-if="bracket.recession > 0">
+                  <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recession | number}}</span> jobs <span class="big bold">gained</span> during the <span class="medium">recession</span>
+                </span>
+                <span ng-if="bracket.recession < 0">
+                  <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recession * -1 | number}}</span> jobs <span class="big bold">lost</span> during the <span class="medium">recession</span>
+                </span>
+              </div>
+              <div>
+                <span ng-if="bracket.recovery > 0">
+                  <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recovery | number}}</span> jobs <span class="big bold">gained</span> during the <span class="medium">recovery</span>
+                </span>
+                <span ng-if="bracket.recovery < 0">
+                  <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recovery * -1 | number}}</span> jobs <span class="big bold">lost</span> during the <span class="medium">recovery</span>
+                </span>
+              </div>
+            </div>
+          
+          </div>
+
         </div>
       </div>
 

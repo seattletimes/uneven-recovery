@@ -38,9 +38,18 @@ parseData(jobsDataKC);
 app.controller("JobsController", ["$scope", function($scope) {
   $scope.brackets = jobsDataWA;
   $scope.selected = 'wa';
+  $scope.currentShown;
   $scope.switchView = function(view) {
     if (view == 'wa') { $scope.brackets = jobsDataWA }
     if (view == 'kc') { $scope.brackets = jobsDataKC }
     $scope.selected = view;
   };
+  $scope.showInfo = function(bracket) {
+    if ($scope.currentShown == bracket) {
+      $scope.currentShown = null;
+    } else {
+      $scope.currentShown = bracket;
+    }
+  };
 }]);
+
