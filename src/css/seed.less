@@ -125,6 +125,9 @@ canvas {
   }
 }
 
+.source {
+  padding-top: 10px;
+}
 .source, .credit {
   font-size: 11.5px;
   color: @df-middle-gray;
@@ -132,6 +135,26 @@ canvas {
 
 .jobs {
   font-size: 14px;
+
+  .button {
+    text-transform: uppercase;
+    font-size: 12px;
+    background: @df-border-gray;
+    display: inline-block;
+    padding: 6px 8px 4px 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    &:hover {
+      background: @df-middle-gray;
+    }
+
+    &.selected {
+      background: @df-orange;
+      cursor: default;
+    }
+  }
 
   .row {
     width: 100%;
@@ -146,10 +169,10 @@ canvas {
     }
 
     .left-bars {
-      .flex(12);
+      .flex(1);
     }
     .right-bars {
-      .flex(88);
+      .flex(3);
     }
 
     .bar {
@@ -157,6 +180,7 @@ canvas {
       height: 20px;
       margin-bottom: 10px;
       position: relative;
+      // transition: width 1s linear;
 
       &.color {
         background: @df-blue;
@@ -183,6 +207,6 @@ canvas {
     text-align: center;
   }
   .label {
-    .flex(0 0 50px);
+    .flex(0 0 55px);
   }
 }
