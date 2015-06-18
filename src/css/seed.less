@@ -156,6 +156,25 @@ canvas {
     }
   }
 
+  .headers {
+    .display-flex;
+    width: 100%;
+
+    .header {
+      display: inline-block;
+    }
+
+    .left {
+      .flex(1);
+    }
+    .middle {
+      .flex(0 0 60px);
+    }
+    .right {
+      .flex(3);
+    }
+  }
+
   .row {
     width: 100%;
     .display-flex;
@@ -180,7 +199,7 @@ canvas {
       height: 20px;
       margin-bottom: 10px;
       position: relative;
-      // transition: width 1s linear;
+      transition: width 1s linear;
 
       &.color {
         background: @df-blue;

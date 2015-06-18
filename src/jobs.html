@@ -18,7 +18,13 @@
         <div class="button" ng-class="{selected: selected == 'wa'}" ng-click="switchView('wa')">Washington</div class="button">
         <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
 
-        <div ng-repeat="bracket in brackets" class="row">
+        <div class="headers">
+          <div class="left header">Net jobs lost</div>
+          <div class="middle header">Income bracket</div>
+          <div class="right header">Net jobs gained</div>
+        </div>
+
+        <div ng-repeat="bracket in brackets track y $index" class="row">
           <div class="label"></div>
           <div class="bars">
             <div class="inner">
