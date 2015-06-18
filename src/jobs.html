@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
   <body class="jobs" ng-app="job-recovery">
@@ -19,18 +20,20 @@
         <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
 
         <div class="headers">
-          <div class="left header">Net jobs lost</div>
-          <div class="middle header">Income bracket</div>
-          <div class="right header">Net jobs gained</div>
+          <div class="label"></div>
+          <div class="left header"><i class="fa fa-long-arrow-left"></i> Jobs <strong>lost</strong></div>
+          <div class="middle header">Hourly wage</div>
+          <div class="right header">Jobs <strong>gained</strong> <i class="fa fa-long-arrow-right"></i></div>
+          <div class="label"></div>
         </div>
 
-        <div ng-repeat="bracket in brackets track y $index" class="row">
+        <div ng-repeat="bracket in brackets track by $index" class="row">
           <div class="label"></div>
           <div class="bars">
             <div class="inner">
               <div class="left-bars">
                 <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
-                <div class="color bar" style="width: {{bracket.secondWidth}}%">
+                <div class="low bar" style="width: {{bracket.secondWidth}}%">
                   <div ng-if="bracket.total < 0" class="left text">{{bracket.total | number}}</div>
                 </div>
               </div>
@@ -38,7 +41,7 @@
                   {{bracket.bracket}}
                 </div>
               <div class="right-bars">
-                <div class="color bar" style="width: {{bracket.thirdWidth}}%">
+                <div class="high bar" style="width: {{bracket.thirdWidth}}%">
                   <div ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
                 </div>
                 <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>

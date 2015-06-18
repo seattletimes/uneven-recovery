@@ -22,7 +22,7 @@
 
 .chatter {
   font-size: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   font-family: @df-serif;
 }
 
@@ -144,7 +144,7 @@ canvas {
     padding: 6px 8px 4px 8px;
     cursor: pointer;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     &:hover {
       background: @df-middle-gray;
@@ -159,16 +159,22 @@ canvas {
   .headers {
     .display-flex;
     width: 100%;
+    font-size: 15px;
+    .align-items(flex-end);
 
     .header {
       display: inline-block;
+      padding-bottom: 10px;
     }
 
     .left {
       .flex(1);
+      text-align: right;
     }
     .middle {
       .flex(0 0 60px);
+      text-align: center;
+      font-size: 12px;
     }
     .right {
       .flex(3);
@@ -197,11 +203,14 @@ canvas {
     .bar {
       float: left;
       height: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       position: relative;
-      transition: width 1s linear;
+      transition: width 0.5s ease-in-out;
 
-      &.color {
+      &.low {
+        background: @df-maroon;
+      }
+      &.high {
         background: @df-blue;
       }
     }
