@@ -175,6 +175,27 @@ canvas {
     .tiny {
       font-size: 11px;
     }
+
+    .left-label {
+      font-size: 14px;
+      position: absolute;
+      right: 100%;
+      width: 70px;
+      text-align: right;
+    }
+
+    .right-label {
+      font-size: 14px;
+      position: absolute;
+      left: 100%;
+      width: 100px;
+      top: 0;
+      text-align: left;
+    }
+
+    .hourly {
+      padding-top: 3px;
+    }
   }
 
   .left {
@@ -185,7 +206,7 @@ canvas {
     .flex(0 0 65px);
     text-align: center;
     font-size: 10px;
-    text-transform: uppercase;
+    position: relative;
   }
   .right {
     .flex(3);
@@ -255,6 +276,10 @@ canvas {
     overflow: hidden;
     font-size: 16px;
     transition: max-height .5s linear;
+
+    @media @break {
+      display: block;
+    }
 
     .info {
       white-space: nowrap;

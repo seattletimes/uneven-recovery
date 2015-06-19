@@ -1,4 +1,4 @@
-require("angular/angular.min");
+require("angular");
 
 var app = angular.module("job-recovery", []);
 
