@@ -172,12 +172,6 @@ canvas {
     display: inline-block;
     padding-bottom: 10px;
 
-    &.dashed {
-      border-bottom: 1px dashed @df-middle-gray;
-      padding-left: 20px;
-
-    }
-
     .tiny {
       font-size: 11px;
     }
@@ -256,10 +250,15 @@ canvas {
   }
 
   .info-box {
+    .display-flex;
     max-height: 0;
     overflow: hidden;
     font-size: 16px;
     transition: max-height .5s linear;
+
+    .info {
+      white-space: nowrap;
+    }
 
     &.show {
       max-height: 100px;
@@ -288,4 +287,11 @@ canvas {
       font-weight: bold;
     }
   }
+}
+
+.fa-long-arrow-up {
+  color: @df-blue;
+}
+.fa-long-arrow-down {
+  color: @df-maroon;
 }
