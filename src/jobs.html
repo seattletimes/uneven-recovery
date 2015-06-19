@@ -16,8 +16,10 @@
 
       <div class="outmost" ng-controller="JobsController">
 
+        <span class="view">Viewing:</span>
         <div class="button" ng-class="{selected: selected == 'wa'}" ng-click="switchView('wa')">Washington</div class="button">
         <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
+        <div class="button" ng-class="{selected: selected == 'nkc'}" ng-click="switchView('nkc')">Non-King County</div>
 
         <div class="headers">
           <div class="label"></div>
@@ -29,7 +31,7 @@
 
         <div ng-repeat="bracket in brackets track by $index">
 
-          <div class="bars-row" ng-click="showInfo(bracket)">
+          <div class="bars-row" ng-click="showInfo($index)">
             <div class="label"></div>
             <div class="bars">
               <div class="inner">
@@ -53,7 +55,7 @@
             <div class="label"></div>
           </div>
 
-          <div class="info-box" ng-class="{show: currentShown == bracket}">
+          <div class="info-box" ng-class="{show: currentShown == $index}">
             
             <div class="right header dashed">
               <div>
@@ -86,6 +88,7 @@
     <script>
       var jobsDataKC = window.data = <%= JSON.stringify(csv.job_data_kc) %>
       var jobsDataWA = window.data = <%= JSON.stringify(csv.job_data_wa) %>
+      var jobsDataNKC = window.data = <%= JSON.stringify(csv.job_data_nkc) %>
     </script>
     <script src="app.js"></script>
     <% if (json.project.production) { %>
