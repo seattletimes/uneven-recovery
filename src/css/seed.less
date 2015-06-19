@@ -165,7 +165,7 @@ canvas {
     .display-flex;
     width: 100%;
     font-size: 15px;
-    .align-items(flex-end);
+    .align-items(center);
   }
 
   .header {
@@ -173,9 +173,13 @@ canvas {
     padding-bottom: 10px;
 
     &.dashed {
-      border-top: 1px dashed @df-middle-gray;
       border-bottom: 1px dashed @df-middle-gray;
       padding-left: 20px;
+
+    }
+
+    .tiny {
+      font-size: 11px;
     }
   }
 
@@ -184,9 +188,10 @@ canvas {
     text-align: right;
   }
   .middle {
-    .flex(0 0 60px);
+    .flex(0 0 65px);
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
+    text-transform: uppercase;
   }
   .right {
     .flex(3);
@@ -242,7 +247,7 @@ canvas {
     }
   }
   .bracket-label {
-    .flex(0 0 60px);
+    .flex(0 0 65px);
     font-weight: bold;
     text-align: center;
   }
@@ -251,8 +256,6 @@ canvas {
   }
 
   .info-box {
-    max-width: 500px;
-    margin: auto;
     max-height: 0;
     overflow: hidden;
     font-size: 16px;
@@ -260,6 +263,13 @@ canvas {
 
     &.show {
       max-height: 100px;
+    }
+
+    &.gain {
+      text-align: right;
+    }
+    &.loss {
+      text-align: left;
     }
 
     .fa {
