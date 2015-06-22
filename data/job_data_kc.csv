@@ -1,10 +1,10 @@
-bracket,total,recession,recovery
-$54+,44445,14951,29494
-$48-53,2985,2056,929
-$42-47,-4413,-4599,186
-$36-41,-4314,-5231,917
-$30-35,-2982,-6840,3858
-$24-29,-5253,-12295,7042
-$18-23,-6327,-16039,9712
-$12-17,-5181,-22053,16872
-< $12,-419,-10770,10351
+bracket,total,recession,recovery,occupations
+$54+,44445,14951,29494,"Includes: Physicians, dentists, marketing managers*"
+$48-53,2985,2056,929,"Includes: Lawyers, aerospace engineers, computer hardware engineers*"
+$42-47,-4413,-4599,186,"Includes: Electrical engineers, construction managers, computer programmers*"
+$36-41,-4314,-5231,917,"Includes: Registered nurses, physical therapists, civil engineers*"
+$30-35,-2982,-6840,3858,"Includes: Firefighters, police and sheriff's patrol officers, librarians*"
+$24-29,-5253,-12295,7042,"Includes: Claims adjusters, landscape architects, aircraft mechanics and service technicians*"
+$18-23,-6327,-16039,9712,"Includes: Auto mechanics, payroll clerks, insurance sales agents*"
+$12-17,-5181,-22053,16872,"Includes: Receptionists, waiters and waitresses, security guards*"
+< $12,-419,-10770,10351,"Includes: Fast food cooks, childcare workers, personal and home care aides*"
