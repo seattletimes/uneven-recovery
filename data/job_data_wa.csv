@@ -1,10 +1,10 @@
-bracket,total,recession,recovery
-$54+,58512,23661,34851
-$48-53,11053,8330,2723
-$42-47,3108,1758,1350
-$36-41,3431,-5630,9061
-$30-35,-5403,-14951,9548
-$24-29,-9904,-23071,13167
-$18-23,-19703,-36896,17193
-$12-17,-12691,-53962,41271
-< $12,-17259,-44368,27109
+bracket,total,recession,recovery,occupations
+$54+,58512,23661,34851,"In 2013, occupations where the median hourly wage was $54 or more ($112,320 a year) included physicians, pharmacists, dentists, marketing managers, and engineering managers."
+$48-53,11053,8330,2723,"In 2013, occupations where the median hourly wage was between $48 and $54 ($99,840-$112,320 a year) included lawyers, aerospace engineers, computer software engineers, computer hardware engineers, and financial managers."
+$42-47,3108,1758,1350,"In 2013, occupations where the median hourly wage was between $42 and $48 ($87,360-$99,840 a year) included electrical engineers, construction managers, computer systems analysts, computer programmers, and nurse practitioners."
+$36-41,3431,-5630,9061,"In 2013, occupations where the median hourly wage was between $36 and $42 ($74,880-$87,360 a year) included registered nurses, occupational therapists, physical therapists, civil engineers, and management analysts."
+$30-35,-5403,-14951,9548,"In 2013, occupations where the median hourly wage was between $30 and $36 ($62,400-$74,880 a year) included firefighters, police and sheriff's patrol officers, librarians, social and community services managers, and construction and building inspectors."
+$24-29,-9904,-23071,13167,"In 2013, occupations where the median hourly wage was between $24 and $30 ($49,920-$62,400 a year) included claims adjusters, landscape architects, aircraft mechanics and service technicians, public relations specialists, and computer support specialists."
+$18-23,-19703,-36896,17193,"In 2013, occupations where the median hourly wage was between $18 and $24 ($37,440-$49,920 a year) included auto mechanics, payroll clerks, insurance sales agents, dental assistants, and carpet installers."
+$12-17,-12691,-53962,41271,"In 2013, occupations where the median hourly wage was between $12 and $18 ($24,960-$37,440 a year) included receptionists, waiters and waitresses, bartenders, stock clerks and order fillers, and security guards."
+< $12,-17259,-44368,27109,"In 2013, occupations where the median hourly wage was less than $12 ($24,960 a year) included fast food cooks, childcare workers, personal and home care aides, housekeeping cleaners, and parking lot attendants."

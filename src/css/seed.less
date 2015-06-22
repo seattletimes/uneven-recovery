@@ -180,7 +180,7 @@ canvas {
       font-size: 14px;
       position: absolute;
       right: 100%;
-      width: 70px;
+      width: 80px;
       text-align: right;
     }
 
@@ -326,7 +326,6 @@ canvas {
     }
 
     .info {
-      white-space: nowrap;
       font-size: 14px;
       color: @df-dark-gray;
 
@@ -334,10 +333,14 @@ canvas {
         border-bottom: 1px dashed @df-dark-gray;
         padding: 0 15px 10px 15px;
       }
+
+      .occupations {
+        padding-top: 10px;
+      }
     }
 
     &.show {
-      max-height: 100px;
+      max-height: 160px;
     }
 
     &.gain {
