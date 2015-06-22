@@ -227,7 +227,7 @@ canvas {
     padding: 0 8px 10px 8px;
 
     @media @break {
-      padding: 0 0 10px 0;
+      display: none;
     }
   }
   .right {
@@ -341,6 +341,11 @@ canvas {
 
       .occupations {
         padding-top: 10px;
+
+        @media @break {
+          max-width: 300px;
+          margin: auto;
+        }
       }
     }
 
