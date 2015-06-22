@@ -129,6 +129,7 @@ if (canvas) {
 
       var values = [];
       percentiles.forEach(function(percentile) {
+        console.log(percentile)
         if (percentile) {
           var name = percentile.name;
           var color = percentile.color;
@@ -145,7 +146,8 @@ if (canvas) {
             income: income, 
             percent: formattedPercent,
             up: up,
-            down: down
+            down: down,
+            bold: percentile.name == "95th" || percentile.name == "20th"
           });
         }
       });
