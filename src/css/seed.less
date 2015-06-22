@@ -196,6 +196,18 @@ canvas {
     .hourly {
       padding-top: 3px;
     }
+
+    .dashed {
+      width: 50%;
+      border-left: 1px dashed @df-dark-gray;
+      border-bottom: 1px dashed @df-dark-gray;
+      float: right;
+      height: 22px;
+
+      @media @break {
+        display: none;
+      }
+    }
   }
 
   .left {
@@ -207,6 +219,11 @@ canvas {
     text-align: center;
     font-size: 10px;
     position: relative;
+    padding: 0 8px 10px 8px;
+
+    @media @break {
+      padding: 0 0 10px 0;
+    }
   }
   .right {
     .flex(3);
@@ -310,17 +327,12 @@ canvas {
 
     .info {
       white-space: nowrap;
-      border-left: 1px dashed @df-dark-gray;
-      margin-left: 50%;
-      padding-left: 15px;
       font-size: 14px;
       color: @df-dark-gray;
 
       @media @break {
-        margin-left: 0;
-        border-left: none;
         border-bottom: 1px dashed @df-dark-gray;
-        padding-bottom: 10px;
+        padding: 0 15px 10px 15px;
       }
     }
 
