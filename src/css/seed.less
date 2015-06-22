@@ -216,6 +216,18 @@ canvas {
     width: 100%;
     .display-flex;
     cursor: pointer;
+
+    &:hover {
+      .bar.low {
+        background: @df-maroon;
+      }
+      .bar.high {
+        background: @df-blue;
+      }
+      .bracket-label {
+        font-weight: bold;
+      }
+    }
   }
 
   .bars {
@@ -240,10 +252,16 @@ canvas {
       transition: width 0.5s ease-in-out;
 
       &.low {
-        background: @df-maroon;
+        background: lighten(@df-maroon, 25%);
+        &.selected {
+          background: @df-maroon;
+        }
       }
       &.high {
-        background: @df-blue;
+        background: lighten(@df-blue, 25%);
+        &.selected {
+          background: @df-blue;
+        }
       }
     }
 
@@ -263,8 +281,11 @@ canvas {
   }
   .bracket-label {
     .flex(0 0 65px);
-    font-weight: bold;
     text-align: center;
+
+    &.selected {
+      font-weight: bold;
+    }
   }
   .label {
     .flex(0 0 50px);
@@ -280,6 +301,7 @@ canvas {
     @media @break {
       display: block;
       text-align: center;
+      font-size: 0.9em;
 
       .left.header {
         text-align: center;
@@ -288,6 +310,18 @@ canvas {
 
     .info {
       white-space: nowrap;
+      border-left: 1px dashed @df-dark-gray;
+      margin-left: 50%;
+      padding-left: 15px;
+      font-size: 14px;
+      color: @df-dark-gray;
+
+      @media @break {
+        margin-left: 0;
+        border-left: none;
+        border-bottom: 1px dashed @df-dark-gray;
+        padding-bottom: 10px;
+      }
     }
 
     &.show {
@@ -306,11 +340,12 @@ canvas {
     }
 
     .big {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     .medium {
-      font-size: 18px;
+      font-size: 16px;
+      color: black;
     }
 
     .bold {
