@@ -16,10 +16,12 @@
 
       <div class="outmost" ng-controller="JobsController">
 
-        <span class="view">Viewing:</span>
-        <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
-        <div class="button" ng-class="{selected: selected == 'nkc'}" ng-click="switchView('nkc')">Non-King County</div>
-        <div class="button" ng-class="{selected: selected == 'wa'}" ng-click="switchView('wa')">Washington</div class="button">
+        <div class="buttons">
+          <span class="view">Viewing:</span>
+          <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
+          <div class="button" ng-class="{selected: selected == 'nkc'}" ng-click="switchView('nkc')">Non-King County</div>
+          <div class="button" ng-class="{selected: selected == 'wa'}" ng-click="switchView('wa')">Washington</div class="button">
+        </div>
 
         <div class="headers">
           <div class="label"></div>
@@ -48,11 +50,11 @@
                 <div class="left-bars">
                   <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
                   <div class="low bar" ng-class="{selected: currentShown == $index}" style="width: {{bracket.secondWidth}}%">
-                    <div ng-if="bracket.total < 0" class="left text">{{bracket.total * -1 | number}}</div>
+                    <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total < 0" class="left text">{{bracket.total * -1 | number}}</div>
                   </div>
                 </div>
                   <div ng-class="{selected: currentShown == $index}" class="bracket-label">
-                    {{bracket.bracket}}
+                    {{bracket.bracket}}<span class="cents">{{!$first && !$last ? ".99" : ""}}</span>
                   </div>
                 <div class="right-bars">
                   <div class="high bar" ng-class="{selected: currentShown == $index}"  style="width: {{bracket.thirdWidth}}%">

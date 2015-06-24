@@ -148,6 +148,15 @@ canvas {
 .jobs {
   font-size: 14px;
 
+  .container {
+    max-width: 960px;
+  }
+
+  .chatter {  
+    max-width: 620px;
+    margin: auto;
+  }
+
   .view {
     padding-right: 2px;
     font-style: italic;
@@ -155,6 +164,13 @@ canvas {
     @media @mobile {
       display: block;
       margin-bottom: 5px;
+    }
+  }
+
+  .buttons {
+    text-align: center;
+    @media @mobile {
+      text-align: left;
     }
   }
 
@@ -236,21 +252,13 @@ canvas {
   .left {
     .flex(1);
     text-align: right;
-
-    @media @break {
-      display: none;
-    }
   }
   .middle {
-    .flex(0 0 65px);
+    .flex(0 0 80px);
     text-align: center;
     font-size: 10px;
     position: relative;
     padding: 0 8px 10px 8px;
-
-    @media @break {
-      display: none;
-    }
   }
   .right {
     .flex(3);
@@ -324,12 +332,23 @@ canvas {
       &.left {
         right: 100%;
         padding-right: 6px;
+
+        &.selected {
+          font-weight: bold;
+        }
       }
     }
   }
   .bracket-label {
-    .flex(0 0 65px);
+    .flex(0 0 80px);
     text-align: center;
+
+    @media @mobile {
+      .flex(0 0 65px);
+      .cents {
+        display: none;
+      }
+    }
 
     &.selected {
       font-weight: bold;
@@ -351,8 +370,8 @@ canvas {
       text-align: center;
       font-size: 0.9em;
 
-      .left.header {
-        text-align: center;
+      .left, .middle {
+        display: none;
       }
     }
 
