@@ -12,7 +12,7 @@
 
     <responsive-child class="container">
       <div class="hed">Job recovery has been markedly uneven</div>
-      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
+      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else. (Note: Numbers are adjusted for inflation.)</div>
 
       <div class="outmost" ng-controller="JobsController">
 
@@ -88,7 +88,7 @@
                 <div ng-if="bracket.recovery < 0">
                   <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recovery * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">recovery</span>
                 </div>
-                <div class="occupations"><em>{{bracket.occupations}}</em></div>
+                <div class="occupations"><em>Typical occupations, statewide, include:</em><br><span class="occupations-text">{{bracket.occupations}}</span</div>
               </div>
             </div>
             <div class="label"></div>
