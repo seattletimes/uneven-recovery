@@ -32,7 +32,7 @@ if (canvas) {
     if (typeof index !== "undefined") {
       ctx.fillStyle = "rgb(248, 248, 248)";
       ctx.fillRect(index * indexWidth + leftOffset, topOffset, indexWidth, height);
-      ctx.fillStyle = "rgb(199, 187, 220)";
+      ctx.fillStyle = "rgba(176,176,187,.6)";
       ctx.fillRect(index * indexWidth + leftOffset, height-35, indexWidth, height);
     }
 

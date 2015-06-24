@@ -8,6 +8,13 @@
 @import "seattletimes";
 @import "flexbox";
 
+.lost {
+  color: @low;
+}
+.gained {
+  color: @high;
+}
+
 .container {
   max-width: 620px;
   font-family: @df-sans;
@@ -144,6 +151,11 @@ canvas {
   .view {
     padding-right: 2px;
     font-style: italic;
+
+    @media @mobile {
+      display: block;
+      margin-bottom: 5px;
+    }
   }
 
   .button {
@@ -376,7 +388,6 @@ canvas {
 
     .medium {
       font-size: 16px;
-      color: black;
     }
 
     .bold {
