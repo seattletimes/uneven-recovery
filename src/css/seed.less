@@ -29,7 +29,7 @@
 
 .chatter {
   font-size: 15px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   font-family: @df-serif;
 }
 
@@ -168,6 +168,10 @@ canvas {
     font-weight: bold;
     margin-bottom: 10px;
 
+    @media @mobile {
+      font-size: 11px;
+    }
+
     &:hover {
       background: @df-middle-gray;
     }
@@ -181,6 +185,7 @@ canvas {
 
   .headers {
     .display-flex;
+    padding-top: 10px;
     width: 100%;
     font-size: 15px;
     .align-items(center);
@@ -231,6 +236,10 @@ canvas {
   .left {
     .flex(1);
     text-align: right;
+
+    @media @break {
+      display: none;
+    }
   }
   .middle {
     .flex(0 0 65px);
@@ -306,6 +315,10 @@ canvas {
       &.right {
         left: 100%;
         padding-left: 6px;
+
+        &.selected {
+          font-weight: bold;
+        }
       }
 
       &.left {
@@ -349,7 +362,7 @@ canvas {
 
       @media @break {
         border-bottom: 1px dashed @df-dark-gray;
-        padding: 0 15px 10px 15px;
+        padding: 5px 15px 15px 15px;
       }
 
       .occupations {

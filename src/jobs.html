@@ -12,7 +12,7 @@
 
     <responsive-child class="container">
       <div class="hed">Job recovery has been markedly uneven</div>
-      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else. (Note: Numbers are adjusted for inflation.)</div>
+      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
 
       <div class="outmost" ng-controller="JobsController">
 
@@ -47,7 +47,7 @@
               <div class="inner">
                 <div class="left-bars">
                   <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
-                  <div class="low bar" ng-class="{selected: currentShown == $index}"  style="width: {{bracket.secondWidth}}%">
+                  <div class="low bar" ng-class="{selected: currentShown == $index}" style="width: {{bracket.secondWidth}}%">
                     <div ng-if="bracket.total < 0" class="left text">{{bracket.total * -1 | number}}</div>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
                   </div>
                 <div class="right-bars">
                   <div class="high bar" ng-class="{selected: currentShown == $index}"  style="width: {{bracket.thirdWidth}}%">
-                    <div ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
+                    <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
                   </div>
                   <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
                 </div>
@@ -77,10 +77,10 @@
             <div class="right header">
               <div class="info">
                 <div ng-if="bracket.recession > 0">
-                  <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recession | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">recession</span>
+                  <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recession | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">downturn</span>
                 </div>
                 <div ng-if="bracket.recession < 0">
-                  <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recession * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">recession</span>
+                  <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recession * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">downturn</span>
                 </div>
                 <div ng-if="bracket.recovery > 0">
                   <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recovery | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">recovery</span>
@@ -97,8 +97,11 @@
         </div>
       </div>
 
-      <div class="note">*Occupation data is for Washington state in 2013.</div>
-      <div class="source"><em>Source: Washington State Employment Security Department</em></div>
+      <div class="note">*Occupation data, including median hourly wage, is for Washington state in 2013.</div>
+      <div class="source"><em>
+        Note: Adjusted for inflation.<br>
+        Source: Washington State Employment Security Department</em>
+      </div>
       <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
     </responsive-child>
 
