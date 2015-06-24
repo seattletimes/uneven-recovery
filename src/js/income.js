@@ -3,11 +3,11 @@ var tooltipTemplate = require("./_tooltipTemplate.html");
 ich.addTemplate("tooltipTemplate", tooltipTemplate);
 
 var percentiles = [
-  { name: "95th", color: "82,79,162" },
-  { name: "80th", color: "35,132,198" },
-  { name: "60th", color: "42,153,100" },
-  { name: "40th", color: "245,125,32" },
-  { name: "20th", color: "218,33,40" }
+  { name: "95th", color: "29,49,75" },
+  { name: "80th", color: "120,122,140" },
+  { name: "60th", color: "176,176,187" },
+  { name: "40th", color: "236,196,192" },
+  { name: "20th", color: "200,34,76" }
 ];
 
 var width = 620;

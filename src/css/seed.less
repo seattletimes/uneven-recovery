@@ -49,19 +49,19 @@ canvas {
       height: 12px;
 
       &.low {
-        background: rgba(218,33,40,.8); 
+        background: rgba(200,34,76,.9); 
       }
       &.low-med {
-        background: rgba(245,125,32,.8);
+        background: rgba(236,196,192,1);
       }
       &.med {
-        background: rgba(42,153,100,.8);
+        background: rgba(176,176,187,1);
       }
       &.med-high {
-        background: rgba(35,132,198,.8);
+        background: rgba(120,122,140,1);
       }
       &.high {
-        background: rgba(82,79,162,.8);
+        background: rgba(29,49,75,.95);
       }
     }
   }
@@ -161,7 +161,8 @@ canvas {
     }
 
     &.selected {
-      background: @df-orange;
+      background: @df-dark-gray;
+      color: white;
       cursor: default;
     }
   }
@@ -241,10 +242,10 @@ canvas {
 
     &:hover {
       .bar.low {
-        background: @df-maroon;
+        background: @low;
       }
       .bar.high {
-        background: @df-blue;
+        background: @high;
       }
       .bracket-label {
         font-weight: bold;
@@ -274,15 +275,15 @@ canvas {
       transition: width 0.5s ease-in-out;
 
       &.low {
-        background: lighten(@df-maroon, 25%);
+        background: @low-light;
         &.selected {
-          background: @df-maroon;
+          background: @low;
         }
       }
       &.high {
-        background: lighten(@df-blue, 25%);
+        background: @high-light;
         &.selected {
-          background: @df-blue;
+          background: @high;
         }
       }
     }
@@ -385,8 +386,8 @@ canvas {
 }
 
 .fa-long-arrow-up {
-  color: @df-blue;
+  color: @high;
 }
 .fa-long-arrow-down {
-  color: @df-maroon;
+  color: @low;
 }
