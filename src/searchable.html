@@ -6,42 +6,49 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  </head>
+    <%= t.include("partials/_adHead.html") %>
+</head>
   <body>
 
-    <responsive-child class="container" ng-app="home-values">
-      <div class="hed">This is a searchable table</div>
-      <div class="chatter">This is chatter about the searchable data.</div>
+    <responsive-child class="homes container" ng-app="home-values">
+      <div class="outmost">
+        <img class="map" src="./assets/recovery_gap_homes_map.jpeg"></img>
 
-      <div class="outmost" ng-controller="HomeController">
-        <table>
-          <thead>
-            <tr>
-              <th class="left city">City
-              <th class="left county">County
-              <th class="left year2007">2007
-              <th class="left year2015">2015
-              <th class="left change">Percent change
+        <div ng-controller="HomeController">
+          <div class="search-container">
+            <span class="search">Search by city:</span>
+            <input type="text" ng-change="search()" ng-model="searchText">
+          </div>
 
-          <tbody>
-            <tr ng-repeat="row in data">
-              <td class="left city">{{row.city}}
-              <td class="left zip">{{row.county}}
-              <td class="right percent">{{row.yr2007}}
-              <td class="right total">{{row.yr2015}}
-              <td class="right personal">{{row.percent}}
-              </tr>
-        </table>
-      </div>
+          <table>
+            <thead>
+              <tr>
+                <th>City
+                <th>County
+                <th>2007
+                <th>2015
+                <th>% change
 
-
-      <div class="bottom">
-        <div class="note">*Occupation data, including median hourly wage, is for Washington state in 2013.</div>
-        <div class="source"><em>
-          Note: Adjusted for inflation.<br>
-          Source: Washington State Employment Security Department</em>
+            <tbody>
+              <tr ng-show="found.length == 0">
+                <td colspan=100><em>No results found</em>
+              <tr ng-repeat="row in found">
+                <td>{{row.city}}
+                <td>{{row.county}}
+                <td>${{row.yr2007 | number}}
+                <td>${{row.yr2015 | number}}
+                <td>{{row.percent}}
+                </tr>
+          </table>
         </div>
-        <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+
+        <div class="bottom">
+          <div class="note">Note: Median home value data is for March of each year</div>
+          <div class="source"><em>
+            Source: Zillow</em>
+          </div>
+          <div class="credit">AUDREY CARLSEN AND EMMA O'NEILL / THE SEATTLE TIMES</div>
+        </div>
       </div>
     </responsive-child>
 
@@ -49,5 +56,9 @@
       var homeData = <%= JSON.stringify(csv.median_home_values) %>
     </script>
     <script src="app.js"></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_adFoot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
   </body>
 </html>

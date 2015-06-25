@@ -62,7 +62,7 @@ canvas {
       height: 12px;
 
       &.low {
-        background: rgba(200,34,76,.9); 
+        background: rgba(200,34,76,.9);
       }
       &.low-med {
         background: rgba(236,196,192,1);
@@ -158,7 +158,7 @@ canvas {
     max-width: 960px;
   }
 
-  .chatter, .bottom {  
+  .chatter, .bottom {
     max-width: 620px;
     margin: auto;
   }
@@ -439,4 +439,56 @@ canvas {
 }
 .fa-long-arrow-down {
   color: @low;
+}
+
+.homes {
+  .outmost {
+    max-width: 620px;
+  }
+  .map {
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+  .search-container {
+    text-align: center;
+  }
+  .search {
+    font-size: 15px;
+  }
+  input {
+    margin-left: 8px;
+  }
+
+  table {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 15px;
+    font-style: @df-sans;
+    border-collapse: collapse;
+
+    @media @mobile {
+      font-size: 13px;
+    }
+
+    td, th {
+      width: 20%;
+      border-bottom: 1px solid @df-border-gray;
+      padding: 6px 8px;
+
+      @media @mobile {
+        padding: 4px;
+      }
+    }
+
+    th {
+      text-align: left;
+      text-transform: uppercase;
+      font-family: "Helvetica";
+
+      @media @mobile {
+        font-size: 9px;
+      }
+    }
+  }
 }

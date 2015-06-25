@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
-  <body class="jobs" ng-app="job-recovery">
+  <body ng-app="job-recovery">
 
-    <responsive-child class="container">
+    <responsive-child class="jobs container">
       <div class="outermost">
         <div class="hed">Net jobs growth favored higher wage jobs</div>
         <div class="chatter">During the downturn (2007-2010), more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew in that period. And in the recovery (2010-2013), the number of jobs paying $54 or more continued to grow, especially in King County.</div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="info-box" ng-class="{show: currentShown == $index}">
-              
+
               <div class="label"></div>
               <div class="left header"></div>
 
