@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body class="jobs" ng-app="job-recovery">
+
+    <responsive-child class="container">
+      <div class="hed">Job recovery has been markedly uneven</div>
+      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
+
+      <div class="outmost" ng-controller="JobsController">
+        Testing testing testing yay!
+
+      </div>
+
+
+      <div class="bottom">
+        <div class="note">*Occupation data, including median hourly wage, is for Washington state in 2013.</div>
+        <div class="source"><em>
+          Note: Adjusted for inflation.<br>
+          Source: Washington State Employment Security Department</em>
+        </div>
+        <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+      </div>
+    </responsive-child>
+
+    <script>
+      var jobsDataKC = window.data = <%= JSON.stringify(csv.job_data_kc) %>
+      var jobsDataWA = window.data = <%= JSON.stringify(csv.job_data_wa) %>
+      var jobsDataNKC = window.data = <%= JSON.stringify(csv.job_data_nkc) %>
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
