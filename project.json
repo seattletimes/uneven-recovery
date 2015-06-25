@@ -5,8 +5,8 @@
       "path": "wee-brainwave"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2015/business/recovery-gap"
     }
   },
   "title": "",
@@ -14,6 +14,6 @@
   "url": "",
   "slug": "",
   "tags": [],
-  "production": false,
+  "production": true,
   "embedded": true
 }
