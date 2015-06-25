@@ -7,15 +7,31 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
-  <body class="jobs" ng-app="job-recovery">
+  <body>
 
-    <responsive-child class="container">
-      <div class="hed">Job recovery has been markedly uneven</div>
-      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
+    <responsive-child class="container" ng-app="home-values">
+      <div class="hed">This is a searchable table</div>
+      <div class="chatter">This is chatter about the searchable data.</div>
 
-      <div class="outmost" ng-controller="JobsController">
-        Testing testing testing yay!
+      <div class="outmost" ng-controller="HomeController">
+        <table>
+          <thead>
+            <tr>
+              <th class="left city">City
+              <th class="left county">County
+              <th class="left year2007">2007
+              <th class="left year2015">2015
+              <th class="left change">Percent change
 
+          <tbody>
+            <tr ng-repeat="row in data">
+              <td class="left city">{{row.city}}
+              <td class="left zip">{{row.county}}
+              <td class="right percent">{{row.yr2007}}
+              <td class="right total">{{row.yr2015}}
+              <td class="right personal">{{row.percent}}
+              </tr>
+        </table>
       </div>
 
 
@@ -30,9 +46,7 @@
     </responsive-child>
 
     <script>
-      var jobsDataKC = window.data = <%= JSON.stringify(csv.job_data_kc) %>
-      var jobsDataWA = window.data = <%= JSON.stringify(csv.job_data_wa) %>
-      var jobsDataNKC = window.data = <%= JSON.stringify(csv.job_data_nkc) %>
+      var homeData = <%= JSON.stringify(csv.median_home_values) %>
     </script>
     <script src="app.js"></script>
   </body>

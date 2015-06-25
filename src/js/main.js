@@ -3,5 +3,6 @@
 // require("./lib/ads");
 
 require("component-responsive-frame/child");
+require("./homes.js");
 require("./income.js");
 require("./jobs.js");
