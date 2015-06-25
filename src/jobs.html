@@ -11,101 +11,103 @@
   <body class="jobs" ng-app="job-recovery">
 
     <responsive-child class="container">
-      <div class="hed">Net jobs growth favored higher wage jobs</div>
-      <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
+      <div class="outermost">
+        <div class="hed">Net jobs growth favored higher wage jobs</div>
+        <div class="chatter">During the recession, more jobs were lost statewide at the lower wage ranges. At the higher wage brackets, though, the number of jobs grew, even during the recession. King County shows an even starker difference between net growth in well-paid jobs and declines almost everywhere else.</div>
 
-      <div class="outmost" ng-controller="JobsController">
+        <div class="outmost" ng-controller="JobsController">
 
-        <div class="buttons">
-          <span class="view">Viewing:</span>
-          <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
-          <div class="button" ng-class="{selected: selected == 'nkc'}" ng-click="switchView('nkc')">Non-King County</div>
-          <div class="button" ng-class="{selected: selected == 'wa'}" ng-click="switchView('wa')">Washington</div class="button">
-        </div>
-
-        <div class="headers">
-          <div class="label"></div>
-          <div class="left header"></div>
-          <div class="middle header">
-            <div class="left-label">
-              <div class="tiny">2007-2013</div>
-              <i class="fa fa-long-arrow-left"></i> Jobs <span class="lost"><strong>lost</strong></span>
-            </div>
-            <div class="hourly">HOURLY WAGE</div>
-            <div class="right-label">
-              <div class="tiny">2007-2013</div>
-              Jobs <span class="gained"><strong>gained</strong></span> <i class="fa fa-long-arrow-right"></i>
-            </div>
-          </div>
-          <div class="right header"></div>
-          <div class="label"></div>
-        </div>
-
-        <div ng-repeat="bracket in brackets track by $index">
-
-          <div class="bars-row" ng-click="showInfo($index)">
-            <div class="label"></div>
-            <div class="bars">
-              <div class="inner">
-                <div class="left-bars">
-                  <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
-                  <div class="low bar" ng-class="{selected: currentShown == $index}" style="width: {{bracket.secondWidth}}%">
-                    <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total < 0" class="left text">{{bracket.total * -1 | number}}</div>
-                  </div>
-                </div>
-                  <div ng-class="{selected: currentShown == $index}" class="bracket-label">
-                    {{bracket.bracket}}<span class="cents">{{!$first && !$last ? ".99" : ""}}</span>
-                  </div>
-                <div class="right-bars">
-                  <div class="high bar" ng-class="{selected: currentShown == $index}"  style="width: {{bracket.thirdWidth}}%">
-                    <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
-                  </div>
-                  <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
-                </div>
-              </div>
-            </div>
-            <div class="label"></div>
+          <div class="buttons">
+            <span class="view">Viewing:</span>
+            <div class="button" ng-class="{selected: selected == 'kc'}" ng-click="switchView('kc')">King County</div>
+            <div class="button" ng-class="{selected: selected == 'nkc'}" ng-click="switchView('nkc')">Non-King County</div>
+            <div class="button" ng-class="{selected: selected == 'wa'}" ng-click="switchView('wa')">Washington</div class="button">
           </div>
 
-          <div class="info-box" ng-class="{show: currentShown == $index}">
-            
+          <div class="headers">
             <div class="label"></div>
             <div class="left header"></div>
-
             <div class="middle header">
-              <div class="dashed"></div>
-            </div>
-
-            <div class="right header">
-              <div class="info">
-                <div ng-if="bracket.recession > 0">
-                  <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recession | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">downturn</span>
-                </div>
-                <div ng-if="bracket.recession < 0">
-                  <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recession * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">downturn</span>
-                </div>
-                <div ng-if="bracket.recovery > 0">
-                  <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recovery | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">recovery</span>
-                </div>
-                <div ng-if="bracket.recovery < 0">
-                  <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recovery * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">recovery</span>
-                </div>
-                <div class="occupations"><em>Typical occupations, statewide, include:</em><br><span class="occupations-text">{{bracket.occupations}}</span</div>
+              <div class="left-label">
+                <div class="tiny">2007-2013</div>
+                <i class="fa fa-long-arrow-left"></i> Jobs <span class="lost"><strong>lost</strong></span>
+              </div>
+              <div class="hourly">HOURLY WAGE</div>
+              <div class="right-label">
+                <div class="tiny">2007-2013</div>
+                Jobs <span class="gained"><strong>gained</strong></span> <i class="fa fa-long-arrow-right"></i>
               </div>
             </div>
+            <div class="right header"></div>
             <div class="label"></div>
+          </div>
 
+          <div ng-repeat="bracket in brackets track by $index">
+
+            <div class="bars-row" ng-click="showInfo($index)">
+              <div class="label"></div>
+              <div class="bars">
+                <div class="inner">
+                  <div class="left-bars">
+                    <div class="bar" style="width: {{bracket.firstWidth}}%"></div>
+                    <div class="low bar" ng-class="{selected: currentShown == $index}" style="width: {{bracket.secondWidth}}%">
+                      <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total < 0" class="left text">{{bracket.total * -1 | number}}</div>
+                    </div>
+                  </div>
+                    <div ng-class="{selected: currentShown == $index}" class="bracket-label">
+                      {{bracket.bracket}}<span class="cents">{{!$first && !$last ? ".99" : ""}}</span>
+                    </div>
+                  <div class="right-bars">
+                    <div class="high bar" ng-class="{selected: currentShown == $index}"  style="width: {{bracket.thirdWidth}}%">
+                      <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
+                    </div>
+                    <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="label"></div>
+            </div>
+
+            <div class="info-box" ng-class="{show: currentShown == $index}">
+              
+              <div class="label"></div>
+              <div class="left header"></div>
+
+              <div class="middle header">
+                <div class="dashed"></div>
+              </div>
+
+              <div class="right header">
+                <div class="info">
+                  <div ng-if="bracket.recession > 0">
+                    <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recession | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">downturn</span>
+                  </div>
+                  <div ng-if="bracket.recession < 0">
+                    <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recession * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">downturn</span>
+                  </div>
+                  <div ng-if="bracket.recovery > 0">
+                    <i class="big fa fa-long-arrow-up"></i> <span class="medium">{{bracket.recovery | number}}</span> jobs <span class="medium bold">gained</span> during the <span class="medium">recovery</span>
+                  </div>
+                  <div ng-if="bracket.recovery < 0">
+                    <i class="big fa fa-long-arrow-down"></i> <span class="medium">{{bracket.recovery * -1 | number}}</span> jobs <span class="medium bold">lost</span> during the <span class="medium">recovery</span>
+                  </div>
+                  <div class="occupations"><em>Typical occupations, statewide, include:</em><br><span class="occupations-text">{{bracket.occupations}}</span</div>
+                </div>
+              </div>
+              <div class="label"></div>
+
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="bottom">
-        <div class="note">*Occupation data, including median hourly wage, is for Washington state in 2013.</div>
-        <div class="source"><em>
-          Note: Adjusted for inflation.<br>
-          Source: Washington State Employment Security Department</em>
+        <div class="bottom">
+          <div class="note">*Occupation data, including median hourly wage, is for Washington state in 2013.</div>
+          <div class="source"><em>
+            Note: Adjusted for inflation.<br>
+            Source: Washington State Employment Security Department</em>
+          </div>
+          <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
         </div>
-        <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
       </div>
     </responsive-child>
 

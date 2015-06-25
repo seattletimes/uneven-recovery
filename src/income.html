@@ -10,31 +10,33 @@
   <body>
 
     <responsive-child class="container">
-      <div class="hed">Change in household incomes</div>
-      <div class="chatter">While the overall median household income for the Seattle-Tacoma-Bellevue area fell 6 percent during the recession, the fortunes of those at the very top and very bottom have diverged dramatically in the recovery.</div>
-      <div class="tooltip"></div>
+      <div class="outermost">
+        <div class="hed">Change in household incomes</div>
+        <div class="chatter">While the overall median household income for the Seattle-Tacoma-Bellevue area fell 6 percent during the recession, the fortunes of those at the very top and very bottom have diverged dramatically in the recovery.</div>
+        <div class="tooltip"></div>
 
-      <canvas width=620 height=320></canvas>
-      <div class="legend-title">INCOME BRACKETS (by percentile)</div>
-      <div class="legend">
-        <div class="low swatch key"></div>
-        <div class="low-med swatch key"></div>
-        <div class="med swatch key"></div>
-        <div class="med-high swatch key"></div>
-        <div class="high swatch key"></div>
+        <canvas width=620 height=320></canvas>
+        <div class="legend-title">INCOME BRACKETS (by percentile)</div>
+        <div class="legend">
+          <div class="low swatch key"></div>
+          <div class="low-med swatch key"></div>
+          <div class="med swatch key"></div>
+          <div class="med-high swatch key"></div>
+          <div class="high swatch key"></div>
+        </div>
+        <div class="legend">
+          <div class="key">20th</div>
+          <div class="key">40th</div>
+          <div class="key">60th</div>
+          <div class="key">80th</div>
+          <div class="key">95th</div>
+        </div>
+        <div class="source"><em>
+          Note: Adjusted for inflation.<br>
+          Source: U.S. Census Bureau</em>
+        </div>
+        <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
       </div>
-      <div class="legend">
-        <div class="key">20th</div>
-        <div class="key">40th</div>
-        <div class="key">60th</div>
-        <div class="key">80th</div>
-        <div class="key">95th</div>
-      </div>
-      <div class="source"><em>
-        Note: Adjusted for inflation.<br>
-        Source: U.S. Census Bureau</em>
-      </div>
-      <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
     </responsive-child>
 
     <script>
