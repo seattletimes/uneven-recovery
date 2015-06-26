@@ -1,6 +1,16 @@
 require("angular");
 var app = angular.module("home-values", []);
 
+homeData.forEach(function(row) {
+  console.log(row.percent)
+  if (row.percent.indexOf("-") > -1) {
+    row.down = true;
+    row.percent = row.percent.replace("-", "");
+  } else {
+    row.up = true;
+  }
+});
+
 app.controller("HomeController", ["$scope", function($scope) {
   var all = homeData;
 

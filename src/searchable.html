@@ -25,9 +25,9 @@
               <tr>
                 <th>City
                 <th>County
-                <th>2007
-                <th>2015
-                <th>% change
+                <th class="right">2007
+                <th class="right">2015
+                <th class="right">% change
 
             <tbody>
               <tr ng-show="found.length == 0">
@@ -35,9 +35,16 @@
               <tr ng-repeat="row in found">
                 <td>{{row.city}}
                 <td>{{row.county}}
-                <td>${{row.yr2007 | number}}
-                <td>${{row.yr2015 | number}}
-                <td>{{row.percent}}
+                <td class="right">
+                  <span class="longyr">${{row.yr2007 | number}}</span>
+                  <span class="shortyr">${{row.round2007 | number}}k</span>
+                <td class="right">
+                  <span class="longyr">${{row.yr2015 | number}}</span>
+                  <span class="shortyr">${{row.round2015 | number}}k</span>
+                <td class="right">
+                  <span class="up caret" ng-if="row.up">&#9650;</span>
+                  <span class="down caret" ng-if="row.down">&#9660;</span>
+                  {{row.percent}}
                 </tr>
           </table>
         </div>

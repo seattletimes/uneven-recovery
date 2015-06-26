@@ -460,6 +460,34 @@ canvas {
     margin-left: 8px;
   }
 
+  .caret {
+    @media @mobile {
+      font-size: 11px;
+    }
+  }
+  .up {
+    color: #5a697e;
+  }
+  .down {
+    color: #e47d80;
+  }
+  .longyr {
+    @media @mobile{
+      display:none;
+    }
+  }
+  .shortyr {
+    display:none;
+    @media @mobile{
+      display:inline;
+    }
+  }
+
+  .right {
+    // text-align: right;
+    text-align: left;
+  }
+
   table {
     margin-top: 10px;
     width: 100%;
