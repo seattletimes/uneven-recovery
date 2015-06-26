@@ -20,6 +20,7 @@ var parseData = function(data) {
     if (width < 0) { 
       bracket.firstWidth = (min + width) / min * 100;
       bracket.secondWidth = (width * -1) / min * 100;
+      bracket.secondWidth = bracket.secondWidth < 1 ? 1 : bracket.secondWidth;
       bracket.thirdWidth = 0;
       bracket.fourthWidth = 100;
     }
