@@ -59,7 +59,7 @@
                     </div>
                   <div class="right-bars">
                     <div class="high bar" ng-class="{selected: currentShown == $index, initial: initial && $index == 0}"  style="width: {{bracket.thirdWidth}}%">
-                      <span class="click" ng-if="$index == 0"><i class="fa fa-plus"></i> CLICK BARS <span class="more">FOR MORE DETAIL</span></span>
+                      <span class="click" ng-if="$index == 0"><i class="fa fa-plus"></i> CLICK <span ng-if="selected != 'nkc'">BARS <span ng-if="selected != 'kc'" class="more">FOR MORE DETAIL</span></span></span></span>
                       <div ng-class="{selected: currentShown == $index}" ng-if="bracket.total > 0" class="right text">{{bracket.total | number}}</div>
                     </div>
                     <div class="bar" style="width: {{bracket.fourthWidth}}%"></div>
